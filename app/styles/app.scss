@@ -1,2 +1,9 @@
 @import "base/variables";
+@import "components/clock";
 @import "components/navigation";
+
+.page-title {
+  margin-top: $space-large;
+  margin-bottom: $space-large;
+  text-align: center;
+}
