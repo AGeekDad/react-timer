@@ -2,19 +2,17 @@ var React = require('react');
 
 var Controls = React.createClass({
   propTypes: {
-    countdownStatus: React.PropTypes.string.isRequired
+    countdownStatus: React.PropTypes.string.isRequired,
+    onStatusChange: React.PropTypes.func.isRequired
   },
-  onPause: function(){
-    this.props.statusChange('pause');
-  },
-  onStart: function(){
-    this.props.statusChange('start');
+  onStatusChange: function(newStatus){
+    return () => { this.props.statusChange(newStatus); };
   },
   renderButtons: function(){
     if(this.props.countdownStatus === 'start'){
-      return <button className="button expanded secondary" onClick={this.onPause}>Pause</button>
+      return <button className="button expanded secondary" onClick={this.onStatusChange("pause")}>Pause</button>
     } else {
-      return <button className="button expanded success" onClick={this.onStart}>Start</button>
+      return <button className="button expanded success" onClick={this.onStatusChange('start')}>Start</button>
     }
   },
   render: function() {
@@ -24,7 +22,7 @@ var Controls = React.createClass({
           {this.renderButtons()}
         </div>
         <div className='column small-6'>
-          <button className="button expanded alert">Reset</button>
+          <button className="button expanded alert" onClick={this.onStatusChange('stop')}>Reset</button>
         </div>
       </div>
     );
