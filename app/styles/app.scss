@@ -1,9 +1,12 @@
 @import "base/variables";
-@import "components/clock";
-@import "components/navigation";
 
-.page-title {
-  margin-top: $space-large;
-  margin-bottom: $space-large;
-  text-align: center;
-}
+// foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+
+// Components
+@import "components/navigation";
+@import "components/clock";
+@import "components/controls";
+@import "components/page-title";
