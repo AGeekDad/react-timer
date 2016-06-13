@@ -6,7 +6,9 @@ var Countdown = require('Countdown');
 var Timer = require('Timer');
 
 // Load foundation
-require('style!css!foundation-sites/dist/foundation.min.css')
+// Explicit style loading - changed to use sass /styles/base/_foundation-settings.scss
+// webpack.config.js => sassLoader: {includePaths: [path.resolve(__dirname, './node_modules/foundation-sites/scss')]},
+//require('style!css!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
 
 // App css
